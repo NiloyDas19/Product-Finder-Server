@@ -42,7 +42,7 @@ The server-side of the "Product Finder" application is built using Node.js and E
    npm install
 
 3. Set up environment variables:
-  -Create a .env file in the root directory of the project and add the following environment variables:
+  - Create a .env file in the root directory of the project and add the following environment variables:
    ```bash
     DB_USER=your_mongodb_username
     DB_PASS=your_mongodb_password
