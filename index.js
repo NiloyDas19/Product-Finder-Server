@@ -65,12 +65,12 @@ async function run() {
             }
 
             try {
-                const products = await productCollection.find(query)
+                const products = await productsCollection.find(query)
                     .sort(sortOptions)
                     .skip(skip)
                     .limit(parseInt(limit))
                     .toArray();
-                const totalProducts = await productCollection.countDocuments(query);
+                const totalProducts = await productsCollection.countDocuments(query);
                 const totalPages = Math.ceil(totalProducts / limit);
 
                 res.json({
