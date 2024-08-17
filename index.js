@@ -99,6 +99,16 @@ async function run() {
             }
         });
 
+        app.get("/categories", async (req, res) => {
+            try {
+                const categories = await productCollection.distinct("category");
+                res.json(categories);
+            } catch (error) {
+                console.log(error);
+                res.status(500).json({ message: error.message });
+            }
+        });
+
 
 
         // Send a ping to confirm a successful connection
