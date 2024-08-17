@@ -29,7 +29,7 @@ async function run() {
 
         app.get("/products", async (req, res) => {
 
-            const { page = 1, limit = 10, search = '', brand = '', category = '', priceRange = '', sort = '' } = req.query;
+            const { page = 1, limit = 12, search = '', brand = '', category = '', priceRange = '', sort = '' } = req.query;
             const skip = (page - 1) * limit;
 
             const query = {};
@@ -82,6 +82,17 @@ async function run() {
                         perPage: limit
                     }
                 });
+            } catch (error) {
+                console.log(error);
+                res.status(500).json({ message: error.message });
+            }
+        });
+
+
+        app.get("/brands", async (req, res) => {
+            try {
+                const brands = await productsCollection.distinct("brand");
+                res.json(brands);
             } catch (error) {
                 console.log(error);
                 res.status(500).json({ message: error.message });
