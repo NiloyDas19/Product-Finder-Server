@@ -39,7 +39,7 @@ async function run() {
             }
 
             if (brand) {
-                query.brand = brand;
+                query.brandName = brand;
             }
 
             if (category) {
@@ -91,7 +91,7 @@ async function run() {
 
         app.get("/brands", async (req, res) => {
             try {
-                const brands = await productsCollection.distinct("brand");
+                const brands = await productsCollection.distinct("brandName");
                 res.json(brands);
             } catch (error) {
                 console.log(error);
@@ -101,7 +101,7 @@ async function run() {
 
         app.get("/categories", async (req, res) => {
             try {
-                const categories = await productCollection.distinct("category");
+                const categories = await productsCollection.distinct("category");
                 res.json(categories);
             } catch (error) {
                 console.log(error);
