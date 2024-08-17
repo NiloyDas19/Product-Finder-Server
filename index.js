@@ -8,7 +8,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: ['http://localhost:5173'], // Adjust according to your frontend setup
+    origin: ['https://find-product.netlify.app','http://localhost:5173'], // Adjust according to your frontend setup
 }));
 app.use(express.json());
 
